@@ -3,20 +3,35 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('One') {
             steps {
-                echo 'Building..'
+                echo 'Hi, This is trinesis Technologies'
             }
         }
-        stage('Test') {
+        stage('Two') {
             steps {
-                echo 'Testing..'
+                echo 'Do you want to proceed??'
             }
         }
-        stage('Deploy') {
+        stage('Three') {
+            when {
+                   not {
+                         branch "main"
+                       }
+                 }        
             steps {
-                echo 'Deploying....'
+                echo "Hello"
             }
+        }
+        stage('Four') {
+                        parallel {
+                             stage('Unit Test') {
+                                                steps {
+                                                      echo "Running the unit test..."
+                                                }
+                                 }                     
+                       }
+              }
         }
     }
-}
+

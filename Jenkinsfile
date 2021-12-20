@@ -29,10 +29,9 @@ pipeline {
                                                 steps {
                                                       echo "Running the unit test..."
                                                 }
-                                 }                                      
+                                 }                     
                        }
               }
         }
-    }
-
-
+  }
+    
